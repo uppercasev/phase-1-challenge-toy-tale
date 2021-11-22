@@ -47,6 +47,12 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": 1
+    },
+    {
+      "name": "Bullseye",
+      "image": "https://e7.pngegg.com/pngimages/172/497/png-clipart-toy-story-jessie-sheriff-woody-buzz-lightyear-bullseye-toy-story-bullseye-illustration-horse-horse-tack.png",
+      "likes": 0,
+      "id": 9
     }
   ]
 }
