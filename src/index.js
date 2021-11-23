@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-//
+//Assignment code below.
 const toyContainer = document.getElementById('toy-collection');
 const addForm = document.querySelector('.add-toy-form');
 const newName = document.querySelector('input[name=name]');
 const newImg = document.querySelector('input[name=image]');
 
-const getData = async (url) => {
+const getData = async function(url) {
   const response = await fetch(url);
   const data = await response.json();
   return data;
@@ -39,7 +39,7 @@ const createToyCard = function(toy) {
   likeButton.className = "like-btn";
   likeButton.id = toy.id;
   likeButton.innerHTML = "Like <3";
-  likeButton.addEventListener("click", async function() {
+  likeButton.addEventListener("click", function() {
     toy.likes++;
     let patchObj = {
       method: "PATCH",

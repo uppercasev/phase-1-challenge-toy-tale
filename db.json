@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 7
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 9
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "id": 5,
       "name": "Rex",
       "image": "http://umich.edu/~chemh215/W11HTML/SSG5/ssg5.2/FRex.png",
-      "likes": 1
+      "likes": 2
     },
     {
       "id": 6,
@@ -51,7 +51,7 @@
     {
       "name": "Bullseye",
       "image": "https://e7.pngegg.com/pngimages/172/497/png-clipart-toy-story-jessie-sheriff-woody-buzz-lightyear-bullseye-toy-story-bullseye-illustration-horse-horse-tack.png",
-      "likes": 0,
+      "likes": 2,
       "id": 9
     }
   ]
