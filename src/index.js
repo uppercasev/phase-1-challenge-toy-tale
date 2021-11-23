@@ -13,16 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+//
+const toyContainer = document.getElementById('toy-collection');
+const addForm = document.querySelector('.add-toy-form');
+const newName = document.querySelector('input[name=name]');
+const newImg = document.querySelector('input[name=image]');
 
-
-//fetch reposnse from url, turn response to json
 const getData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
   return data;
 }
-
-const toyContainer = document.getElementById('toy-collection');
 
 const createToyCard = function(toy) {
   let toyCard = document.createElement('div');
@@ -38,23 +39,26 @@ const createToyCard = function(toy) {
   likeButton.className = "like-btn";
   likeButton.id = toy.id;
   likeButton.innerHTML = "Like <3";
+  likeButton.addEventListener("click", async function() {
+    toy.likes++;
+    let patchObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        "likes": toy.likes,
+      })
+    };
+    fetch(`http://localhost:3000/toys/${toy.id}`, patchObj)
+    .then(function() {
+      toyLikes.innerHTML = `${toy.likes} Likes`;
+    });
+  })
   toyCard.append(toyName, toyImg, toyLikes, likeButton);
   return toyCard;
 }
-
-window.addEventListener('DOMContentLoaded', async function() {
-  const allToys = await getData("http://localhost:3000/toys");
-  allToys.forEach(function(toy) {
-    let card = createToyCard(toy);
-    toyContainer.appendChild(card);
-  });
-})
-
-const addForm = document.querySelector('.add-toy-form');
-const newName = document.querySelector('input[name=name]');
-const newImg = document.querySelector('input[name=image]');
-console.log(newName.value);
-console.log(newImg.value);
 
 const createNewToy = function() {
   let formData = {
@@ -77,7 +81,15 @@ const createNewToy = function() {
   });
 }
 
+window.addEventListener('DOMContentLoaded', async function() {
+  const allToys = await getData("http://localhost:3000/toys");
+  allToys.forEach(function(toy) {
+    let card = createToyCard(toy);
+    toyContainer.appendChild(card);
+  });
+});
+
 addForm.addEventListener('submit', function(event) {
   event.preventDefault();
   createNewToy();
-})
+});
